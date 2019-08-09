@@ -22,7 +22,6 @@ import java.util.Date;
 public class MainActivity extends AppCompatActivity
 {
     private float seconds=0;
-    private int timecounter=0;
     private int distance = 0;
     private boolean startRun = false;
     private String time = "00:00";
@@ -100,16 +99,7 @@ public class MainActivity extends AppCompatActivity
                 float sec = ((seconds/10)%60);
                 time = String.format("%02d:%.1f ",min,sec);
 
-                timecounter = (int) (Math.random()*10000);
-                Log.e(TAG, "run: "+timecounter );
-                if((timecounter%6)==0)
-                {
-                    constraintLayout.setBackgroundColor(getResources().getColor(R.color.lightGrey));
-                }
-                else
-                {
-                    constraintLayout.setBackgroundColor(getResources().getColor(R.color.lightGrey2));
-                }
+                // Log.e(TAG, "run: "+timecounter );
 
                 timetv.setText(time);
                 if(startRun)
