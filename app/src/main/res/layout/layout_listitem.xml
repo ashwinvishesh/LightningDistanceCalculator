@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:id="@+id/parentlayout"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/log_disttv"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+
+        android:layout_marginLeft="5dp"
+
+        android:paddingStart="15dp"
+
+        android:layout_weight="1"
+        android:background="@color/lightGrey"
+        android:fontFamily="@font/bebasneue_regular"
+        android:gravity="center_vertical"
+        android:text="123123 m"
+        android:textSize="30dp"/>
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_weight="1"
+        android:id="@+id/log_timetv"
+
+        android:layout_marginRight="5dp"
+
+        android:paddingStart="15dp"
+
+        android:background="@color/lightGrey"
+        android:fontFamily="@font/bebasneue_regular"
+        android:gravity="center_vertical"
+        android:text="3:45.45 PM"
+        android:textSize="30dp"/>
+</LinearLayout>

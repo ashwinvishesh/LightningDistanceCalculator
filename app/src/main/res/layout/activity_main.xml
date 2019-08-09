@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="400dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/thebutton"
+            style="@style/Widget.AppCompat.Button"
+            android:layout_width="175dp"
+            android:layout_height="63dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/roundbtn"
+            android:backgroundTint="@color/colorPrimary"
+            android:fontFamily="@font/bebasneue_regular"
+            android:text="Lightning"
+            android:textColor="#fff"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toTopOf="@+id/logrecycler"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/timetv"/>
+
+        <TextView
+            android:id="@+id/timetv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/bebasneue_regular"
+            android:gravity="center"
+            android:text="00:0.0"
+            android:textColor="@color/colorPrimary"
+            android:textSize="50dp"
+            app:layout_constraintBottom_toTopOf="@+id/thebutton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/imageView3"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/logrecycler"
+            android:layout_width="0dp"
+            android:layout_height="200dp"
+            android:layout_margin="18dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/thebutton"/>
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/timetv"
+            app:layout_constraintEnd_toStartOf="@+id/timetv"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/timetv"
+            app:srcCompat="@drawable/stopwatch"/>
+
+
+    </android.support.constraint.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/disttv"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:fontFamily="@font/bebasneue_regular"
+        android:hint="0 m"
+        android:text=" 0 "
+        android:textAlignment="textEnd"
+        android:textColor="#fff"
+        android:textSize="90sp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView"
+        app:layout_constraintEnd_toStartOf="@+id/M"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.64"/>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/bggrad"/>
+
+    <TextView
+        android:id="@+id/M"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/cuprum"
+        android:text="m"
+        android:textColor="@color/colorPrimary"
+        android:textSize="60sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/disttv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/disttv"/>
+
+
+</android.support.constraint.ConstraintLayout>
