@@ -1,5 +1,6 @@
 package com.ashwin.lightingdistancecalculator;
 
+import android.os.CountDownTimer;
 import android.os.Handler;
 import android.support.constraint.ConstraintLayout;
 import android.support.v4.widget.TextViewCompat;
@@ -11,6 +12,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.text.DateFormat;
@@ -21,14 +23,15 @@ import java.util.Date;
 
 public class MainActivity extends AppCompatActivity
 {
-    private float seconds=0;
-    private int distance = 0;
+    private float deciseconds=0,sec;
+    private int distance = 0,min;
     private boolean startRun = false;
     private String time = "00:00";
     TextView timetv,disttv;
     Button thebutton;
     RecyclerView recyclerView;
-    ConstraintLayout constraintLayout;
+    CountDownTimer myTimer;
+    ImageView resetBt;
 
     private static final String TAG = "MainActivity";
     private ArrayList<String> distances = new ArrayList<>();
@@ -45,7 +48,7 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         if(savedInstanceState !=null)
         {
-            seconds = savedInstanceState.getInt("seconds");
+            deciseconds = savedInstanceState.getInt("seconds");
             startRun = savedInstanceState.getBoolean("startRun");
         }
 
@@ -53,7 +56,7 @@ public class MainActivity extends AppCompatActivity
         disttv = findViewById(R.id.disttv);
         thebutton = findViewById(R.id.thebutton);
         recyclerView =findViewById(R.id.logrecycler);
-        constraintLayout = findViewById(R.id.constraintLayout);
+        resetBt =findViewById(R.id.resetBt);
 
         initRecyclerView();
 
@@ -64,55 +67,70 @@ public class MainActivity extends AppCompatActivity
             {
                 if(startRun)
                 {
-                    startRun = false;
-                    distance = (int)((seconds/10) * 343);
+                    startRun=false;
+                    myTimer.cancel();
+                    distance = (int)((deciseconds/10) * 343);
                     disttv.setText(distance+" ");
                     distances.add(distance+" m ");
                     timestamps.add(df.format(Calendar.getInstance().getTime()));
                     adapter.notifyDataSetChanged();
                     recyclerView.smoothScrollToPosition(adapter.getItemCount());
                     thebutton.setText("Lightning");
+                    resetBt.setVisibility(View.INVISIBLE);
                 }
                 else
                 {
-                    seconds=0;
-                    startRun = true;
+                    deciseconds=0;
+                    myTimer.start();
                     thebutton.setText("Thunder");
+                    resetBt.setVisibility(View.VISIBLE);
+                    startRun=true;
                 }
             }
         });
 
+        resetBt.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                startRun=false;
+                myTimer.cancel();
+                disttv.setText("0");
+                timetv.setText("00:00.0");
+                resetBt.setVisibility(View.INVISIBLE);
+
+            }
+        });
         Timer();
     }
 
 
-    private void Timer()
-    {
-        final Handler handler = new Handler();
-        handler.post(new Runnable()
-        {
-            @Override
-            public void run()
-            {
+   private void Timer()
+   {
+       myTimer = new CountDownTimer(1000000,100)
+       {
+           @Override
+           public void onTick(long l)
+           {
+               ++deciseconds;
+               min = (int) (deciseconds/600);
+               sec = ((deciseconds/10)%60);
+               time = String.format("%02d:%.1f ",min,sec);
 
-                int min = (int) (seconds/600);
-                float sec = ((seconds/10)%60);
-                time = String.format("%02d:%.1f ",min,sec);
+               timetv.setText(time);
+           }
 
-                // Log.e(TAG, "run: "+timecounter );
+           @Override
+           public void onFinish()
+           {
 
-                timetv.setText(time);
-                if(startRun)
-                {
-                    seconds++;
-                }
-                handler.postDelayed(this,100);
-            }
-        });
-    }
+           }
+       };
+   }
 
-    private void initRecyclerView()
-    {
+   private void initRecyclerView()
+   {
         Log.d(TAG, "initRecyclerView: init");
         adapter = new RecyclerViewAdapter(distances,timestamps,this);
         recyclerView.setAdapter(adapter);

@@ -45,13 +45,13 @@ public class RecyclerViewAdapter extends  RecyclerView.Adapter<RecyclerViewAdapt
 
         if(i%2==0)
         {
-            viewHolder.logdist.setBackgroundColor(mContext.getResources().getColor(R.color.lightGrey));
-            viewHolder.logtime.setBackgroundColor(mContext.getResources().getColor(R.color.lightGrey));
+            viewHolder.logdist.setBackgroundColor(mContext.getResources().getColor(R.color.darkGrey));
+            viewHolder.logtime.setBackgroundColor(mContext.getResources().getColor(R.color.darkGrey));
         }
         else
         {
-            viewHolder.logdist.setBackgroundColor(mContext.getResources().getColor(R.color.lightGrey2));
-            viewHolder.logtime.setBackgroundColor(mContext.getResources().getColor(R.color.lightGrey2));
+            viewHolder.logdist.setBackgroundColor(mContext.getResources().getColor(R.color.almostBlack));
+            viewHolder.logtime.setBackgroundColor(mContext.getResources().getColor(R.color.almostBlack));
 
         }
     }
