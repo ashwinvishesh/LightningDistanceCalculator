@@ -1,5 +1,7 @@
 package com.ashwin.lightingdistancecalculator;
 
+import android.app.AlertDialog;
+import android.content.Intent;
 import android.os.CountDownTimer;
 import android.os.Handler;
 import android.support.constraint.ConstraintLayout;
@@ -31,7 +33,7 @@ public class MainActivity extends AppCompatActivity
     Button thebutton;
     RecyclerView recyclerView;
     CountDownTimer myTimer;
-    ImageView resetBt;
+    ImageView resetBt,infoBt;
 
     private static final String TAG = "MainActivity";
     private ArrayList<String> distances = new ArrayList<>();
@@ -55,8 +57,9 @@ public class MainActivity extends AppCompatActivity
         timetv = findViewById(R.id.timetv);
         disttv = findViewById(R.id.disttv);
         thebutton = findViewById(R.id.thebutton);
-        recyclerView =findViewById(R.id.logrecycler);
-        resetBt =findViewById(R.id.resetBt);
+        recyclerView = findViewById(R.id.logrecycler);
+        resetBt = findViewById(R.id.resetBt);
+        infoBt = findViewById(R.id.infoBt);
 
         initRecyclerView();
 
@@ -102,6 +105,15 @@ public class MainActivity extends AppCompatActivity
 
             }
         });
+
+        infoBt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this,InfoActivity.class);
+                startActivity(intent);
+            }
+        });
+
         Timer();
     }
 

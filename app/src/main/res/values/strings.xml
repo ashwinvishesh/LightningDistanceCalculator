@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Lighting Distance Calculator</string>
+    <string name="howitworks">Press lightning button when you see the flash.
+this will start the timer. Then press thunder button
+when you hear the thunder. This will stop the timer and you will see the approximate distance of the lightning strike. You can also see a log of the past strikes on the bottom of the screen.</string>
 </resources>
