@@ -67,7 +67,7 @@
         android:id="@+id/bottomConstraintLayout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="4"
+        android:layout_weight="5"
         android:orientation="vertical"
         android:padding="5dp">
 
@@ -108,7 +108,7 @@
         <android.support.v7.widget.RecyclerView
             android:id="@+id/logrecycler"
             android:layout_width="0dp"
-            android:layout_height="200dp"
+            android:layout_height="170dp"
             android:layout_margin="18dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

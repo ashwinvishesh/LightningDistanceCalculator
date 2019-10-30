@@ -102,7 +102,6 @@ public class MainActivity extends AppCompatActivity
                 disttv.setText("0");
                 timetv.setText("00:00.0");
                 resetBt.setVisibility(View.INVISIBLE);
-
             }
         });
 
