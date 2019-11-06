@@ -1,6 +1,6 @@
 ![Alt text](https://github.com/ashwinvishesh/LightningDistanceCalculator/raw/master/newscreen.png?raw=true "ScreenShot")
 # Download
-Playstore : https://play.google.com/store/apps/details?id=com.ashwin.lightingdistancecalculator
+<a href="https://play.google.com/store/apps/details?id=com.ashwin.lightingdistancecalculator">Playstore Link</a>
 # Lightning Distance Calculator
 Lightning distance calculator is a simple Android app that helps you calculate the distance of a lightning strike.
 It works by taking into consideration the propogation speed difference between sound and light. The app helps you
